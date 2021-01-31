@@ -28,7 +28,7 @@ dist_data <- read.csv("Wigan_BT_distances_miles_sensnums.csv",
 
 dist_data2 <- as.matrix(dist_data)
 
-
+# list of sensor specific indels (sensor 1:8)
 indel_v <- c(1.41,1.38,1.70,1.47,1.28,1.70,1.42,1.10)
 
 
@@ -45,6 +45,7 @@ weights1 <- ddply(all_seq1,c(colnames(all_seq1)), nrow)
 weights1 <- weights1 %>% 
   rename(freq1 = V1)
 
+# testing hierarchical clustering to see how many clusters to use
 clusterward2 <- hclust(as.dist(all_seq_dists_uni),
                        method = "ward.D2",
                        members=weights1$freq1)
@@ -56,17 +57,13 @@ plot(wardRange, stat = c("ASWw", "HG", "PBC", "HC"))
 plot(wardRange, stat = c("all"))
 
 
-
-
 #####################################################################
 ### once the number of clusters have been selected... ###
 
 
-###### now look at xxx clusts (optimium for my purposes)
+###### now look at, for example, 25 clusts
 clusts <- cutree(clusterward2, k = 25)
 clust_data1 <- cbind(all_seq2_uni,clusts)
-
-
 
 
 ## Then merge back into full data
