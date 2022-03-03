@@ -1,5 +1,5 @@
 # Spatial-intrapersonal-variability-using-Bluetooth-data
-Code and toy data relating to a paper currently under review in Networks and Spatial Economics.
+Code and toy data relating to a paper published in Networks and Spatial Economics (doi: https://doi.org/10.1007/s11067-021-09539-4).
 
 The first file which should be run is 'BT_datasubset_spatialclust.R', which clusters trip trajectories using 
 sequence alignment to calculate distances between sensor observations.  The purpose is to reduce the spatial dimensionality of the trip sequences.  The input data required are in:
